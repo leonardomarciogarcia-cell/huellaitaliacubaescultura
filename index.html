@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script>
+window.contextInfo = {"files":[],"materials":[],"crafts":[]};
+// 处理锚点链接跳转（srcDoc iframe 中锚点链接默认行为不正确）
+document.addEventListener('click', function(e) {
+  var anchor = e.target.closest('a');
+  if (anchor) {
+    var href = anchor.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      var targetId = href.slice(1);
+      var target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
+});
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Evolución Escultórica de Cuba en 93 Años | Cartel Serigráfico Patrimonial</title>
+  
+  <!-- Tipografías alojadas en assets/fonts (la web funciona sin conexión a internet) -->
+
+  <style>
+    /* Tipografías locales (OFL): ver assets/fonts/LICENSE-fuentes.txt */
+    @font-face { font-family: 'Bebas Neue'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/bebas-neue-400.woff2') format('woff2'); }
+    @font-face { font-family: 'Anton'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/anton-400.woff2') format('woff2'); }
+    @font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/cormorant-garamond-400-normal.woff2') format('woff2'); }
+    @font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 400; font-display: swap; src: url('assets/fonts/cormorant-garamond-400-italic.woff2') format('woff2'); }
+    @font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 600; font-display: swap; src: url('assets/fonts/cormorant-garamond-600-normal.woff2') format('woff2'); }
+    @font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 600; font-display: swap; src: url('assets/fonts/cormorant-garamond-600-italic.woff2') format('woff2'); }
+    @font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/cormorant-garamond-700-normal.woff2') format('woff2'); }
+    @font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 700; font-display: swap; src: url('assets/fonts/cormorant-garamond-700-italic.woff2') format('woff2'); }
+    @font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('assets/fonts/jetbrains-mono-400.woff2') format('woff2'); }
+    @font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('assets/fonts/jetbrains-mono-500.woff2') format('woff2'); }
+    @font-face { font-family: 'JetBrains Mono'; font-style: normal; font-weight: 700; font-display: swap; src: url('assets/fonts/jetbrains-mono-700.woff2') format('woff2'); }
+
+    /* ==========================================================================
+       RESET & BASE DESIGN SYSTEM
+       Silkscreen poster aesthetic: Carbon Black, Flag Green, Crimson Red, Cobalt Blue
+       ========================================================================== */
+    :root {
+      --bg-carbon: #0a0a0a;
+      --bg-carbon-card: #111111;
+      --text-chalk: #f7f7f4;
+      --text-muted: #a6a69f;
+      --green-screenprint: #1e6b3c;
+      --green-vibrant: #238048;
+      --red-crimson: #d32323;
+      --red-deep: #ba1c1c;
+      --blue-cobalt: #1f4278;
+      --blue-accent: #2e62b3;
+      --blue-glow: rgba(46, 98, 179, 0.35);
+      --blue-line: #1a6fe0;
+      --blue-node: #123a7a;
+      --font-headline: 'Bebas Neue', 'Anton', Impact, sans-serif;
+      --font-editorial: 'Cormorant Garamond', Georgia, serif;
+      --font-technical: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #050505;
+      color: var(--text-chalk);
+      font-family: var(--font-editorial);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-x: hidden;
+      padding: 24px 12px 60px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ==========================================================================
+       POSTER CANVAS (70x100 proportion serigraphic sheet)
+       ========================================================================== */
+    .poster-container {
+      position: relative;
+      width: 100%;
+      max-width: 960px;
+      background-color: var(--bg-carbon);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      padding: 70px 34px 64px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    /* Screenprint Halftone & Paper Grain Overlays */
+    .screenprint-grain {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 90;
+      opacity: 0.22;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.7'/%3E%3C/svg%3E");
+    }
+
+    .screenprint-vignette {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 91;
+      background: radial-gradient(circle at 50% 50%, transparent 70%, rgba(0,0,0,0.3) 100%);
+    }
+
+    /* ==========================================================================
+       1. CABECERA EDITORIAL (HERENCIA "GEOGRAFÍAS COMPARTIDAS")
+       ========================================================================== */
+    .editorial-header {
+      position: relative;
+      z-index: 10;
+      margin-bottom: 34px;
+      text-align: center;
+    }
+
+    .main-title-wrap {
+      display: flex;
+      flex-direction: column;
+      line-height: 0.98;
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .main-title-line-1 {
+      font-family: 'Anton', var(--font-headline);
+      font-size: clamp(34px, 7vw, 70px);
+      color: var(--text-chalk);
+      font-weight: 700;
+      text-transform: uppercase;
+      display: block;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .main-title-line-2 {
+      font-family: 'Anton', var(--font-headline);
+      font-size: clamp(34px, 7vw, 70px);
+      color: #1fa352;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: block;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .main-title-line-2 .title-blue {
+      color: var(--blue-line);
+    }
+
+    .header-subtitle {
+      font-family: var(--font-editorial);
+      font-size: clamp(21px, 3.2vw, 29px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-chalk);
+      line-height: 1.25;
+      max-width: 680px;
+      margin: 0 auto 16px;
+    }
+
+    .crimson-rule {
+      width: 72px;
+      height: 3.5px;
+      background-color: var(--red-crimson);
+      margin: 0 auto 16px;
+    }
+
+    .header-context {
+      font-family: var(--font-editorial);
+      font-size: clamp(16px, 2.2vw, 20px);
+      font-weight: 400;
+      font-style: italic;
+      color: #b8b8b0;
+      line-height: 1.4;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       2. LÍNEA DEL TIEMPO CENTRAL (EJE AZUL CON AÑOS INTERACTIVOS)
+       ========================================================================== */
+    .timeline-container {
+      --tl-gap: 92px;       /* ancho del canal central entre columnas */
+      --tl-node: 78px;      /* diámetro de cada círculo de año */
+      --tl-row-gap: 64px;
+      position: relative;
+      margin-top: 36px;
+    }
+
+    /* Línea vertical azul continua, centrada entre las dos columnas */
+    .timeline-rail {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      background: var(--blue-line);
+      z-index: 1;
+    }
+
+    /* Círculo de año (botón): se ancla a su período y cae sobre la línea */
+    .timeline-node {
+      position: absolute;
+      z-index: 8;
+      width: var(--tl-node);
+      height: var(--tl-node);
+      padding: 0;
+      border-radius: 50%;
+      background: var(--blue-node);
+      border: 4px solid var(--blue-line);
+      color: #ffffff;
+      font-family: var(--font-headline);
+      font-size: 19px;
+      line-height: 1.05;
+      letter-spacing: 0.5px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 0 4px var(--bg-carbon);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
+    }
+    .timeline-node:hover {
+      background: var(--blue-accent);
+      transform: scale(1.08);
+    }
+    .timeline-node:focus-visible {
+      outline: 3px solid #ffffff;
+      outline-offset: 3px;
+    }
+    /* Columna izquierda: el círculo sobresale por la derecha; derecha: por la izquierda */
+    .period-section:nth-child(odd) .timeline-node {
+      right: calc((var(--tl-gap) / 2 + var(--tl-node) / 2) * -1);
+    }
+    .period-section:nth-child(even) .timeline-node {
+      left: calc((var(--tl-gap) / 2 + var(--tl-node) / 2) * -1);
+    }
+    /* Altura de cada círculo respecto a su período (según la referencia) */
+    #periodo-1 .timeline-node { top: 40px; }
+    #periodo-2 .timeline-node { top: 40%; }
+    #periodo-3 .timeline-node { top: calc((var(--tl-row-gap) / 2 + var(--tl-node) / 2) * -1); }
+    #periodo-4 .timeline-node { top: 34%; }
+
+    /* ==========================================================================
+       3. LOS 4 PERÍODOS HISTÓRICOS (CUADRÍCULA 2 × 2 SOBRE LA LÍNEA CENTRAL)
+       ========================================================================== */
+    .timeline-content-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: var(--tl-gap);
+      row-gap: var(--tl-row-gap);
+      position: relative;
+      z-index: 2;
+    }
+
+    .period-section {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      scroll-margin-top: 30px;
+    }
+
+    /* Header del período: tres líneas, esquina exterior de cada celda */
+    .period-meta-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      margin-bottom: 8px;
+    }
+    .period-section:nth-child(even) .period-meta-header {
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .period-number {
+      order: 1;
+      font-family: var(--font-headline);
+      font-size: 24px;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      color: var(--text-chalk);
+      text-transform: uppercase;
+    }
+
+    .period-title {
+      order: 2;
+      font-family: var(--font-headline);
+      font-size: 24px;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: var(--text-chalk);
+    }
+
+    .period-date-range {
+      order: 3;
+      font-family: var(--font-editorial);
+      font-size: 19px;
+      font-style: italic;
+      color: #d8d8d2;
+    }
+    .period-date-range::before { content: '('; }
+    .period-date-range::after { content: ')'; }
+
+    /* VISUAL STAGE: el disco serigráfico queda DETRÁS de las figuras */
+    .period-visual-stage {
+      position: relative;
+      width: 100%;
+      margin: auto 0 0;
+      padding-top: 10px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    /* Discos Serigráficos (capa inferior, nunca sobre las imágenes) */
+    .screenprint-disc {
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      width: 92%;
+      aspect-ratio: 1 / 1;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .screenprint-disc.disc-green {
+      background-color: var(--green-screenprint);
+    }
+
+    .screenprint-disc.disc-red {
+      background-color: var(--red-crimson);
+    }
+
+    /* Escultura Image Wrappers (capa superior a los discos) */
+    .sculpture-composition {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Imágenes recortadas: sin cajas, sombras ni recortes; se ven completas */
+    .sculpture-img-art {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: grayscale(100%) contrast(112%) brightness(104%);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+      cursor: pointer;
+    }
+    .sculpture-img-art:hover {
+      filter: grayscale(100%) contrast(125%) brightness(110%);
+      transform: scale(1.02);
+    }
+    /* El bronce verdigrís de Maceo conserva su color, como en la referencia */
+    .stage-p3 .sculpture-img-art,
+    .stage-p3 .sculpture-img-art:hover {
+      filter: none;
+    }
+
+    /* Esculturas pulsables: etiqueta flotante (nombre · año) al pasar el cursor o enfocar */
+    .sculpture-item {
+      position: relative;
+      cursor: pointer;
+    }
+    .sculpture-item:hover { z-index: 20; }
+    .sculpture-item:focus-visible { z-index: 20; outline: 2px dashed var(--blue-line); outline-offset: 4px; }
+    .sculpture-item::after {
+      content: attr(data-label);
+      position: absolute;
+      left: 50%;
+      bottom: 10px;
+      transform: translate(-50%, 4px);
+      width: max-content;
+      max-width: 170px;
+      text-align: center;
+      background: rgba(10, 10, 10, 0.94);
+      border: 1px solid var(--blue-line);
+      border-radius: 3px;
+      padding: 4px 9px;
+      color: #ffffff;
+      font-family: var(--font-technical);
+      font-size: 10.5px;
+      line-height: 1.3;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 30;
+    }
+    .sculpture-item:hover::after,
+    .sculpture-item:focus-visible::after {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    /* Pista de interacción bajo el encabezado */
+    .header-hint {
+      margin-top: 16px;
+      font-family: var(--font-technical);
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #6fa3ea;
+    }
+
+    /* P1: India (izquierda) + Leones (derecha), superpuestas */
+    .stage-p1 .sculptures-row {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+    }
+    .stage-p1 .item-india {
+      position: relative;
+      z-index: 5;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .stage-p1 .item-leones {
+      width: 66%;
+      margin-left: -16%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+    /* P2: Monumento Estudiantes de Medicina */
+    .stage-p2 .item-medicina {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 84%;
+    }
+
+    /* P3: Antonio Maceo Ecuestre */
+    .stage-p3 .item-maceo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* P4: Trilogía Angelo Zanelli (Virtud · República · Trabajo) */
+    .stage-p4 .trilogy-layout {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+    }
+    .stage-p4 .trilogy-side {
+      position: relative;
+      z-index: 4;
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .stage-p4 .trilogy-center {
+      position: relative;
+      z-index: 5;
+      width: 36%;
+      margin: 0 -8%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ==========================================================================
+       4. PIE DE CARTEL Y COLOFÓN DOCUMENTAL
+       ========================================================================== */
+    .poster-footer {
+      position: relative;
+      z-index: 10;
+      margin-top: 54px;
+      padding-top: 24px;
+      text-align: center;
+    }
+
+    .footer-tricolor {
+      width: 100%;
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .footer-tricolor span {
+      display: block;
+      flex: 1;
+      height: 8px;
+    }
+    .footer-tricolor span:nth-child(1) { background-color: var(--green-screenprint); }
+    .footer-tricolor span:nth-child(2) { background-color: var(--text-chalk); }
+    .footer-tricolor span:nth-child(3) { background-color: var(--red-crimson); }
+
+    .footer-quote {
+      font-family: var(--font-editorial);
+      font-size: clamp(21px, 3.2vw, 27px);
+      font-style: italic;
+      color: var(--text-chalk);
+      letter-spacing: 0.2px;
+      margin-bottom: 0;
+      display: block;
+    }
+
+    /* ==========================================================================
+       MODAL DE DETALLE ESCULTÓRICO INTERACTIVO
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open {
+      display: flex;
+      animation: modalFadeIn 0.25s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-card {
+      background: #111111;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      width: 100%;
+      max-width: 620px;
+      border-radius: 8px;
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+      color: var(--text-chalk);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: #202020;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-family: var(--font-technical);
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .modal-close-btn:hover {
+      background: var(--red-crimson);
+    }
+
+    .modal-year-pill {
+      display: inline-block;
+      font-family: var(--font-technical);
+      font-size: 11px;
+      color: #93c5fd;
+      background: rgba(31, 66, 120, 0.4);
+      border: 1px solid #2e62b3;
+      padding: 2px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .modal-sculpture-title {
+      font-family: var(--font-headline);
+      font-size: 32px;
+      letter-spacing: 0.8px;
+      margin-bottom: 6px;
+      line-height: 1.1;
+    }
+
+    .modal-sculptor {
+      font-family: var(--font-editorial);
+      font-size: 18px;
+      font-style: italic;
+      color: #bbb;
+      margin-bottom: 18px;
+    }
+
+    .modal-body-text {
+      font-family: var(--font-editorial);
+      font-size: 17px;
+      line-height: 1.5;
+      color: #deded8;
+      margin-bottom: 20px;
+    }
+
+    .modal-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      background: #090909;
+      padding: 14px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.08);
+      font-family: var(--font-technical);
+      font-size: 11px;
+    }
+    .modal-spec-label {
+      color: #7997c2;
+      text-transform: uppercase;
+      font-size: 9.5px;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+    .modal-spec-val {
+      color: #f0f0eb;
+      font-weight: 500;
+    }
+
+    .modal-card [hidden] { display: none !important; }
+    .modal-card { max-height: calc(100vh - 32px); overflow-y: auto; }
+
+    /* Miniatura de la obra en el popup */
+    .modal-thumb {
+      margin: 4px 0 16px;
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #090909;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .modal-thumb img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* Obras del período (popup de un año) */
+    .modal-works { margin-top: 16px; }
+    .modal-works-label {
+      font-family: var(--font-technical);
+      font-size: 10.5px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #8a8a84;
+      margin-bottom: 8px;
+    }
+    .modal-works-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .modal-work-btn {
+      font-family: var(--font-technical);
+      font-size: 11px;
+      letter-spacing: 0.6px;
+      color: #ffffff;
+      background: rgba(31, 66, 120, 0.35);
+      border: 1px solid var(--blue-line);
+      border-radius: 4px;
+      padding: 7px 11px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .modal-work-btn:hover { background: var(--blue-accent); }
+
+    /* Navegación anterior / siguiente */
+    .modal-nav {
+      margin-top: 20px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(255,255,255,0.14);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .modal-nav-btn {
+      font-family: var(--font-technical);
+      font-size: 11px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 4px;
+      padding: 7px 12px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .modal-nav-btn:hover { background: rgba(255,255,255,0.08); border-color: var(--blue-line); }
+    .modal-nav-label {
+      font-family: var(--font-technical);
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #7997c2;
+    }
+    .modal-card button:focus-visible { outline: 2px solid #ffffff; outline-offset: 2px; }
+
+    /* Miniatura pulsable del popup */
+    .modal-thumb-btn {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      background: none;
+      border: 0;
+      border-radius: 6px;
+      cursor: zoom-in;
+    }
+    .modal-thumb-zoom {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 9px;
+      background: rgba(10, 10, 10, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+      color: #cfe0fb;
+      font-family: var(--font-technical);
+      font-size: 10.5px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .modal-thumb-btn:hover .modal-thumb-zoom,
+    .modal-thumb-btn:focus-visible .modal-thumb-zoom {
+      background: var(--blue-node);
+      border-color: var(--blue-line);
+      color: #ffffff;
+    }
+
+    /* Visor de imagen ampliada: capa por encima del popup */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(8px);
+    }
+    .lightbox-overlay.open {
+      display: flex;
+      animation: modalFadeIn 0.25s ease-out;
+    }
+    .lightbox-frame {
+      position: relative;
+      display: inline-block;
+      line-height: 0;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .lightbox-frame img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: min(94vw, 1100px);
+      max-height: calc(100vh - 40px);
+      object-fit: contain;
+      background: #0a0a0a;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 6px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+    }
+    /* Botón cerrar en la esquina superior derecha de la imagen */
+    .lightbox-close {
+      top: 10px;
+      right: 10px;
+      line-height: normal;
+      background: rgba(10, 10, 10, 0.85);
+    }
+    .lightbox-close:focus-visible { outline: 2px solid #ffffff; outline-offset: 2px; }
+
+    /* Notas de período (popup de los años de la línea del tiempo) */
+    .modal-period-notes {
+      background: #090909;
+      padding: 14px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.08);
+      font-family: var(--font-technical);
+      font-size: 11px;
+      line-height: 1.6;
+      letter-spacing: 0.8px;
+      color: #7997c2;
+    }
+    .modal-period-notes[hidden],
+    .modal-specs-grid[hidden] {
+      display: none;
+    }
+
+    /* Print styles for authentic museum printing */
+    @media print {
+      body {
+        background: #0a0a0a !important;
+        padding: 0;
+      }
+      .modal-overlay {
+        display: none !important;
+      }
+      .poster-container {
+        box-shadow: none;
+        width: 100%;
+        max-width: 100%;
+        padding: 40px 30px;
+      }
+    }
+
+    /* Tablet: canal central y círculos algo más compactos */
+    @media (min-width: 769px) and (max-width: 1000px) {
+      .timeline-container {
+        --tl-gap: 72px;
+        --tl-node: 64px;
+        --tl-row-gap: 52px;
+      }
+      .timeline-node {
+        font-size: 16px;
+        border-width: 3px;
+      }
+      .period-number, .period-title { font-size: 21px; }
+      .period-date-range { font-size: 17px; }
+    }
+
+    /* Respeta la preferencia de movimiento reducido */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+      .sculpture-img-art:hover, .timeline-node:hover { transform: none; }
+    }
+
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .poster-container {
+        padding: 40px 20px 40px;
+      }
+      /* Una sola columna; la línea azul pasa al margen izquierdo */
+      .timeline-container {
+        --tl-node: 58px;
+        --tl-row-gap: 56px;
+        padding-left: 72px;
+      }
+      .timeline-rail {
+        left: 28px;
+      }
+      .timeline-content-column {
+        grid-template-columns: 1fr;
+      }
+      .timeline-node {
+        font-size: 15px;
+        border-width: 3px;
+      }
+      .period-section:nth-child(odd) .timeline-node,
+      .period-section:nth-child(even) .timeline-node {
+        left: -71px;
+        right: auto;
+      }
+      #periodo-1 .timeline-node,
+      #periodo-2 .timeline-node,
+      #periodo-3 .timeline-node,
+      #periodo-4 .timeline-node {
+        top: 0;
+      }
+      .period-section:nth-child(even) .period-meta-header {
+        align-items: flex-start;
+        text-align: left;
+      }
+      .stage-p2 .item-medicina {
+        width: 70%;
+      }
+      .stage-p3 .item-maceo {
+        width: 88%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       CONTENEDOR DEL PÓSTER
+       ========================================================================== -->
+  <main class="poster-container" id="posterRoot">
+    
+    <!-- Capas de Semitono y Grano Serigráfico -->
+    <div class="screenprint-grain" id="grainOverlay"></div>
+    <div class="screenprint-vignette"></div>
+
+    <!-- 1. CABECERA EDITORIAL (HERENCIA GRÁFICA "GEOGRAFÍAS COMPARTIDAS") -->
+    <header class="editorial-header">
+      <div class="main-title-wrap">
+        <h1 class="main-title-line-1">LA EVOLUCIÓN ESCULTÓRICA</h1>
+        <h2 class="main-title-line-2">DE <span class="title-blue">CUBA</span> EN 93 AÑOS</h2>
+      </div>
+
+      <p class="header-subtitle">
+        7 monumentos que traducen la identidad nacional del mármol al bronce.
+      </p>
+
+      <div class="crimson-rule"></div>
+
+      <p class="header-context">
+        De Carrara a La Habana: un diálogo transatlántico entre modelos italianos y símbolos cubanos.
+      </p>
+      <p class="header-hint">Pulsa un año de la línea del tiempo o una escultura para ver su historia</p>
+    </header>
+
+    <!-- 2. EJE TEMPORAL VERTICAL & GRID CRONOLÓGICO -->
+    <div class="timeline-container">
+      
+      <!-- LÍNEA DEL TIEMPO CENTRAL (AZUL); los años interactivos están en cada período -->
+      <div class="timeline-rail" aria-hidden="true"></div>
+
+      <!-- COLUMNA PRINCIPAL CON LOS 4 PERÍODOS HISTÓRICOS -->
+      <section class="timeline-content-column">
+
+        <!-- ====================================================================
+             PERÍODO I: 1830–1860 | ORNATO COLONIAL
+             Disco Verde Bandera (#1e6b3c)
+             Obras: Fuente de los Leones (1836) y Fuente de la India (1837)
+             ==================================================================== -->
+        <article class="period-section" id="periodo-1">
+          <button type="button" class="timeline-node" title="Ver información del período" onclick="openPeriodModal('periodo-1')" aria-label="Ver información del Período I: 1836 y 1837">1836 /<br>1837</button>
+
+          <div class="period-meta-header">
+            <span class="period-number">PERÍODO I</span>
+            <span class="period-date-range">1830–1860</span>
+            <span class="period-title green-accent">ORNATO COLONIAL</span>
+          </div>
+
+          <!-- Escenario visual con disco verde serigráfico y fotos B/N alto contraste -->
+          <div class="period-visual-stage stage-p1">
+            <!-- Disco Verde de Gran Escala -->
+            <div class="screenprint-disc disc-green" aria-hidden="true"></div>
+
+            <div class="sculptures-row">
+              
+              <!-- Obra 1: Fuente de la India (1837) — izquierda -->
+              <div class="item-india sculpture-item" data-sculpture="india" data-label="Fuente de la India · 1837" role="button" tabindex="0" aria-label="Ver ficha: Fuente de la India · 1837" onclick="openModal('india')">
+                <img 
+                  src="assets/img/fuente-de-la-india.webp" 
+                  width="867" height="928"
+                  alt="Fuente de la India o Noble Habana (1837), Giuseppe Gaggini y Tagliafichi, Paseo del Prado"
+                  class="sculpture-img-art"
+                  loading="lazy"
+                />
+              </div>
+
+              <!-- Obra 2: Fuente de los Leones (1836) — derecha -->
+              <div class="item-leones sculpture-item" data-sculpture="leones" data-label="Fuente de los Leones · 1836" role="button" tabindex="0" aria-label="Ver ficha: Fuente de los Leones · 1836" onclick="openModal('leones')">
+                <img 
+                  src="assets/img/fuente-de-los-leones.webp" 
+                  width="765" height="1200"
+                  alt="Fuente de los Leones (1836), Giuseppe Gaggini, Plaza de San Francisco de Asís"
+                  class="sculpture-img-art"
+                  loading="lazy"
+                />
+              </div>
+
+            </div>
+          </div>
+
+        </article>
+
+
+        <!-- ====================================================================
+             PERÍODO II: 1870–1898 | MEMORIA CÍVICA
+             Disco Rojo Carmesí (#d32323)
+             Obra: Monumento a los Estudiantes de Medicina (1889)
+             ==================================================================== -->
+        <article class="period-section" id="periodo-2">
+          <button type="button" class="timeline-node" title="Ver información del período" onclick="openPeriodModal('periodo-2')" aria-label="Ver información del Período II: 1889">1889</button>
+
+          <div class="period-meta-header">
+            <span class="period-number">PERÍODO II</span>
+            <span class="period-date-range">1870–1898</span>
+            <span class="period-title red-accent">MEMORIA CÍVICA</span>
+          </div>
+
+          <div class="period-visual-stage stage-p2">
+            <!-- Disco Rojo Sólido -->
+            <div class="screenprint-disc disc-red" aria-hidden="true"></div>
+
+            <div class="sculpture-composition">
+              <!-- Obra 3: Monumento Estudiantes de Medicina (1889) -->
+              <div class="item-medicina sculpture-item" data-sculpture="medicina" data-label="Monumento a los Estudiantes de Medicina · 1889" role="button" tabindex="0" aria-label="Ver ficha: Monumento a los Estudiantes de Medicina · 1889" onclick="openModal('medicina')">
+                <img 
+                  src="assets/img/monumento-estudiantes-de-medicina.webp" 
+                  width="553" height="907"
+                  alt="Monumento a los Estudiantes de Medicina (1889), José Vilalta Saavedra y Baratta, Necrópolis de Colón"
+                  class="sculpture-img-art"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+
+        <!-- ====================================================================
+             PERÍODO III: 1902–1916 | MONUMENTALISMO REPUBLICANO
+             Disco Verde Bandera (#1e6b3c)
+             Obra: Monumento al General Antonio Maceo y Grajales (1916)
+             ==================================================================== -->
+        <article class="period-section" id="periodo-3">
+          <button type="button" class="timeline-node" title="Ver información del período" onclick="openPeriodModal('periodo-3')" aria-label="Ver información del Período III: 1902 y 1916">1902 /<br>1916</button>
+
+          <div class="period-meta-header">
+            <span class="period-number">PERÍODO III</span>
+            <span class="period-date-range">1902–1916</span>
+            <span class="period-title green-accent">MONUMENTALISMO REPUBLICANO</span>
+          </div>
+
+          <div class="period-visual-stage stage-p3">
+            <!-- Disco Verde Sólido -->
+            <div class="screenprint-disc disc-green" aria-hidden="true"></div>
+
+            <div class="sculpture-composition">
+              <!-- Obra 4: Monumento Antonio Maceo (1916) -->
+              <div class="item-maceo sculpture-item" data-sculpture="maceo" data-label="Monumento al General Antonio Maceo · 1916" role="button" tabindex="0" aria-label="Ver ficha: Monumento al General Antonio Maceo · 1916" onclick="openModal('maceo')">
+                <img 
+                  src="assets/img/monumento-antonio-maceo.webp" 
+                  width="575" height="678"
+                  alt="Monumento al General Antonio Maceo y Grajales (1916), Doménico Boni, Parque Maceo, Malecón"
+                  class="sculpture-img-art"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+
+        <!-- ====================================================================
+             PERÍODO IV: 1920–1929 | APOTEOSIS REPUBLICANA
+             Gran Disco Rojo Carmesí (#d32323) dominante
+             Obras: Trilogía Angelo Zanelli para el Capitolio (El Trabajo 1928, La Virtud 1928, Estatua de la República 1929)
+             ==================================================================== -->
+        <article class="period-section" id="periodo-4">
+          <button type="button" class="timeline-node" title="Ver información del período" onclick="openPeriodModal('periodo-4')" aria-label="Ver información del Período IV: 1928 y 1929">1928 /<br>1929</button>
+
+          <div class="period-meta-header">
+            <span class="period-number">PERÍODO IV</span>
+            <span class="period-date-range">1920–1929</span>
+            <span class="period-title red-accent">APOTEOSIS REPUBLICANA</span>
+          </div>
+
+          <div class="period-visual-stage stage-p4">
+            <!-- Gran Disco Rojo Dominante de Cierre -->
+            <div class="screenprint-disc disc-red" aria-hidden="true"></div>
+
+            <!-- Disposición de Trilogía Zanelli: Flancos + Estatua Central -->
+            <div class="trilogy-layout">
+              
+              <!-- Flanco Izquierdo: La Virtud (1928) -->
+              <div class="trilogy-side sculpture-item" data-sculpture="virtud" data-label="La Virtud · 1928" role="button" tabindex="0" aria-label="Ver ficha: La Virtud · 1928" onclick="openModal('virtud')">
+                <img 
+                  src="assets/img/la-virtud.webp" 
+                  width="522" height="892"
+                  alt="La Virtud (1928), Angelo Zanelli, Pórtico del Capitolio Nacional"
+                  class="sculpture-img-art"
+                  loading="lazy"
+                />
+              </div>
+
+              <!-- Centro Monumental: Estatua de la República (1929, 14.6 m) -->
+              <div class="trilogy-center sculpture-item" data-sculpture="republica" data-label="Estatua de la República · 1929" role="button" tabindex="0" aria-label="Ver ficha: Estatua de la República · 1929" onclick="openModal('republica')">
+                <img 
+                  src="assets/img/estatua-de-la-republica.webp" 
+                  width="313" height="901"
+                  alt="Estatua de la República (1929), Angelo Zanelli, Salón de los Pasos Perdidos, Kilómetro Cero"
+                  class="sculpture-img-art"
+                  loading="lazy"
+                />
+              </div>
+
+              <!-- Flanco Derecho: El Trabajo (1928) -->
+              <div class="trilogy-side sculpture-item" data-sculpture="trabajo" data-label="El Trabajo · 1928" role="button" tabindex="0" aria-label="Ver ficha: El Trabajo · 1928" onclick="openModal('trabajo')">
+                <img 
+                  src="assets/img/el-trabajo.webp" 
+                  width="636" height="1200"
+                  alt="El Trabajo (1928), Angelo Zanelli, Pórtico del Capitolio Nacional"
+                  class="sculpture-img-art"
+                  loading="lazy"
+                />
+              </div>
+
+            </div>
+          </div>
+
+
+        </article>
+
+      </section>
+    </div>
+
+    <!-- 4. PIE DE CARTEL Y COLOFÓN DOCUMENTAL -->
+    <footer class="poster-footer">
+      <div class="footer-tricolor" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <blockquote class="footer-quote">
+        “La ciudad es también un archivo de encuentros entre naciones.”
+      </blockquote>
+    </footer>
+
+  </main>
+
+  <!-- ==========================================================================
+       MODAL DE DETALLE HISTÓRICO Y ESCULTÓRICO
+       ========================================================================== -->
+  <div class="modal-overlay" id="detailModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button type="button" class="modal-close-btn" id="modalCloseBtn" onclick="closeModal()">✕ CERRAR</button>
+      <span class="modal-year-pill" id="modalYear">AÑO</span>
+      <h3 class="modal-sculpture-title" id="modalTitle">Título de la Obra</h3>
+      <p class="modal-sculptor" id="modalSculptor">Autor y Ubicación</p>
+
+      <div class="modal-thumb" id="modalThumbWrap" hidden>
+        <button type="button" class="modal-thumb-btn" id="modalThumbBtn" onclick="openLightbox()" aria-label="Ampliar imagen de la obra" title="Ampliar imagen">
+          <img id="modalThumb" alt="">
+          <span class="modal-thumb-zoom" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="5" r="3.6"/><path d="M7.8 7.8 11 11M5 3.4v3.2M3.4 5h3.2"/></svg>
+            Ampliar
+          </span>
+        </button>
+      </div>
+      
+      <p class="modal-body-text" id="modalDescription">Descripción de la obra</p>
+      
+      <p class="modal-period-notes" id="modalPeriodNotes" hidden></p>
+
+      <div class="modal-works" id="modalWorks" hidden>
+        <div class="modal-works-label">Obras de este período</div>
+        <div class="modal-works-list" id="modalWorksList"></div>
+      </div>
+
+      <div class="modal-specs-grid" id="modalSpecs">
+        <div>
+          <div class="modal-spec-label">Material</div>
+          <div class="modal-spec-val" id="modalMaterial">-</div>
+        </div>
+        <div>
+          <div class="modal-spec-label">Procedencia Artística</div>
+          <div class="modal-spec-val" id="modalOrigin">-</div>
+        </div>
+        <div>
+          <div class="modal-spec-label">Emplazamiento Original</div>
+          <div class="modal-spec-val" id="modalLocation">-</div>
+        </div>
+        <div>
+          <div class="modal-spec-label">Significado Iconográfico</div>
+          <div class="modal-spec-val" id="modalIconography">-</div>
+        </div>
+      </div>
+
+      <div class="modal-nav">
+        <button type="button" class="modal-nav-btn" id="modalPrev" onclick="modalStep(-1)" aria-label="Anterior">← Anterior</button>
+        <span class="modal-nav-label" id="modalNavLabel" aria-live="polite"></span>
+        <button type="button" class="modal-nav-btn" id="modalNext" onclick="modalStep(1)" aria-label="Siguiente">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       VISOR DE IMAGEN AMPLIADA (se abre sobre el popup de la escultura)
+       ========================================================================== -->
+  <div class="lightbox-overlay" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada" onclick="closeLightboxOnBackdrop(event)">
+    <div class="lightbox-frame">
+      <img id="lightboxImg" alt="">
+      <button type="button" class="modal-close-btn lightbox-close" id="lightboxCloseBtn" onclick="closeLightbox()">✕ CERRAR</button>
+    </div>
+  </div>
+
+  <script>
+    // Datos técnicos y curatoriales de las 7 esculturas
+    const sculptureData = {
+      leones: {
+        year: "1836 · PERÍODO I: ORNATO COLONIAL",
+        title: "Fuente de los Leones",
+        sculptor: "Giuseppe Gaggini (Génova, Italia) · Plaza de San Francisco de Asís",
+        desc: "Encargada bajo el mandato del Conde de Villanueva como parte del proyecto de modernización del acueducto de La Habana. Cuatro leones de mármol de Carrara sostienen un pilón superior sobre una taza poligonal con bajorrelieves de escudos marítimos y motivos clásicos genoveses, proveyendo agua potable al puerto más importante de las Antillas.",
+        material: "Mármol blanco de Carrara",
+        origin: "Talleres escultóricos de Génova, Italia",
+        location: "Plaza de San Francisco de Asís, La Habana Vieja",
+        iconography: "Poder colonial borbónico, custodia cívica e infraestructura portuaria"
+      },
+      india: {
+        year: "1837 · PERÍODO I: ORNATO COLONIAL",
+        title: "Fuente de la India (Noble Habana)",
+        sculptor: "Giuseppe Gaggini & Cesare Tagliafichi · Paseo del Prado / Puertas de Tierra",
+        desc: "Magna alegoría en mármol de Carrara representando a la cacica aborigen Habana, personificación de la ciudad. Porta corona de plumas, carcaj con flechas, cornucopia rebosante de frutas tropicales y el escudo fundacional con los tres torreones y la llave de Indias. Síntesis suprema de la técnica neoclásica italiana aplicada a la identidad insular.",
+        material: "Mármol estatuario de Carrara",
+        origin: "Liguria / Génova (embarcado a Cuba en 1836)",
+        location: "Extremo sur del Paseo del Prado / Campo Marte",
+        iconography: "Mitología fundacional de La Habana, fertilidad y soberanía portuaria"
+      },
+      medicina: {
+        year: "1889 · PERÍODO II: MEMORIA CÍVICA",
+        title: "Monumento a los Estudiantes de Medicina",
+        sculptor: "Andrea y Alessandro Baratta + José Vilalta Saavedra · Necrópolis de Cristóbal Colón",
+        desc: "Monumento funerario de duelo cívico erigido en honor a los ocho jóvenes estudiantes de medicina injustamente fusilados por el régimen colonial español el 27 de noviembre de 1871. La figura central, la Inocencia, emerge con túnica velada desde las puertas de una tumba abierta custodiada por figuras de la Historia y la Justicia, uniendo a canteros italianos y la maestría de Vilalta Saavedra, formado en Florencia.",
+        material: "Mármol estatuario italiano y basamento arquitectónico",
+        origin: "Florencia / Carrara / Cantería Habanera",
+        location: "Avenida Central, Necrópolis de Cristóbal Colón",
+        iconography: "Martirio cívico, Inocencia inmortal y condena moral al despotismo"
+      },
+      maceo: {
+        year: "1916 · PERÍODO III: MONUMENTALISMO REPUBLICANO",
+        title: "Monumento al General Antonio Maceo",
+        sculptor: "Doménico Boni (Italia) · Parque Maceo, Malecón Habanero",
+        desc: "Estatua ecuestre de escala colosal en bronce montada sobre un elevado pedestal escalonado de granito. Conmemora al Titán de Bronce, lugarteniente general del Ejército Libertador en la Invasión a Occidente. Doménico Boni capturó la ferocidad del corcel cabriolé y la serenidad militar de Maceo mirando al mar caribeño, inaugurado durante la consolidación de la República civilista.",
+        material: "Bronce fundido a la cera perdida y granito gris pulido",
+        origin: "Fonderia Artistica Italiana",
+        location: "Frente al Malecón y la Calzada de Belascoaín",
+        iconography: "Epopeya mambisa, arrojo militar y victoria sobre el dominio colonial"
+      },
+      trabajo: {
+        year: "1928 · PERÍODO IV: APOTEOSIS REPUBLICANA",
+        title: "El Trabajo (Pórtico del Capitolio)",
+        sculptor: "Angelo Zanelli · Pórtico exterior del Capitolio Nacional de Cuba",
+        desc: "Colosal escultura de bronce de 6.5 metros de altura situada al flanco norte de la gran escalinata capitolina. Representa el esfuerzo humano, la disciplina cívica y la capacidad transformadora de la clase obrera y creadora de la nueva República, encarnada en un atleta vigoroso acompañado por un forjador.",
+        material: "Bronce patinado al fuego",
+        origin: "Fundición Laganà, Roma, Italia",
+        location: "Pórtico Monumental del Capitolio, La Habana",
+        iconography: "Progreso industrial, fuerza ciudadana y cimiento económico de la nación"
+      },
+      virtud: {
+        year: "1928 · PERÍODO IV: APOTEOSIS REPUBLICANA",
+        title: "La Virtud (La Tutelar)",
+        sculptor: "Angelo Zanelli · Pórtico exterior del Capitolio Nacional de Cuba",
+        desc: "Gemela de El Trabajo, de 6.5 metros de altura en bronce situada al flanco sur de la escalinata. Representa los valores morales, el derecho cívico y la pureza ética que deben regir las leyes del pueblo soberano, simbolizada por una matrona clásica armada con lanza defensiva y vestidura solemne inspirada en la Grecia heroica.",
+        material: "Bronce patinado de fundición romana",
+        origin: "Roma, Italia",
+        location: "Flanco sur del Pórtico del Capitolio Nacional",
+        iconography: "Ética republicana, custodia de la Constitución y virtud cívica"
+      },
+      republica: {
+        year: "1929 · PERÍODO IV: APOTEOSIS REPUBLICANA",
+        title: "Estatua de la República",
+        sculptor: "Angelo Zanelli · Salón de los Pasos Perdidos, Kilómetro Cero",
+        desc: "La tercera escultura bajo techo más grande del mundo (14.6 metros de altura total con pedestal y peso superior a 49 toneladas). Zanelli fundió en Roma esta impresionante divinidad republicana en bronce hueco recubierto de pan de oro de 22 quilates. Como rasgo identitario cumbre, tomó como modelo fisonómico el rostro y proporciones de la mujer habanera Elena de Cárdenas y Echarte, entrelazando la iconografía de Minerva con la fisonomía cubana en el eje exacto del Kilómetro Cero.",
+        material: "Bronce con dorado al pan de oro de 22 quilates (14.6 metros)",
+        origin: "Fundición Laganà, Roma (transportada en piezas por mar a La Habana)",
+        location: "Bajo la cúpula, Salón de los Pasos Perdidos del Capitolio",
+        iconography: "Soberanía nacional, síntesis heleno-antillana y culminación del ideal republicano"
+      }
+    };
+
+    // Modal Handlers
+    // Textos de cierre de cada período (se muestran solo en el popup de su año)
+    const periodData = {
+      "periodo-1": {
+            "quote": "“Poder colonial, embellecimiento urbano y mitología local. Mármol de Carrara e ingeniería hidráulica al servicio de la ciudad portuaria.”",
+            "notes": "NODOS: 1836 (PLAZA DE SAN FRANCISCO) · 1837 (PUERTAS DE TIERRA / PRADO) · CANTERÍA LIGUR"
+      },
+      "periodo-2": {
+            "quote": "“El duelo cívico transformado en mausoleo y memoria colectiva. Síntesis pionera entre canteros italianos y la escultura de autor cubana.”",
+            "notes": "NODO: 1889 · LA INOCENCIA RESURGIENDO DEL SEPELIO · MÁRMOL ESTATUARIO ITALIANO"
+      },
+      "periodo-3": {
+            "quote": "“La joven República construye héroes y gestas nacionales en bronce y granito, traduciendo la epopeya mambisa al lenguaje monumental europeo.”",
+            "notes": "NODO: 1916 · FUNDICIÓN EN BRONCE Y PEDESTAL DE GRANITO · EL TITÁN DE BRONCE"
+      },
+      "periodo-4": {
+            "quote": "“Soberanía nacional monumentalizada. Fusión de alegorías clásicas de la República con rasgos fisonómicos de mujeres cubanas en bronce colosal.”",
+            "notes": "NODOS: 1928 (PÓRTICO EXTERIOR) · 1929 (SALÓN DE LOS PASOS PERDIDOS, EJE KM CERO) · FUNDICIÓN ROMANA"
+      }
+};
+    const periodOrder = ['periodo-1', 'periodo-2', 'periodo-3', 'periodo-4'];
+    const sculptureOrder = Object.keys(sculptureData);
+
+    let modalState = null;   // { kind: 'sculpture' | 'period', id }
+    let lastFocus = null;    // elemento que abrió el popup (para devolverle el foco)
+
+    function setModalOpen() {
+      const modal = document.getElementById('detailModal');
+      if (!modal.classList.contains('open')) {
+        lastFocus = document.activeElement;
+        modal.classList.add('open');
+        document.querySelector('.poster-container').inert = true;   // el fondo no recibe foco ni clics
+        document.getElementById('modalCloseBtn').focus();
+      }
+      // Indicador de posición para anterior / siguiente
+      const list = modalState.kind === 'sculpture' ? sculptureOrder : periodOrder;
+      const n = list.indexOf(modalState.id) + 1;
+      document.getElementById('modalNavLabel').textContent =
+        (modalState.kind === 'sculpture' ? 'OBRA ' : 'PERÍODO ') + n + ' / ' + list.length;
+      modal.querySelector('.modal-card').scrollTop = 0;
+    }
+
+    function openModal(id) {
+      const data = sculptureData[id];
+      if (!data) return;
+      modalState = { kind: 'sculpture', id: id };
+
+      document.getElementById('modalYear').textContent = data.year;
+      document.getElementById('modalTitle').textContent = data.title;
+      document.getElementById('modalSculptor').textContent = data.sculptor;
+      document.getElementById('modalDescription').textContent = data.desc;
+      document.getElementById('modalMaterial').textContent = data.material;
+      document.getElementById('modalOrigin').textContent = data.origin;
+      document.getElementById('modalLocation').textContent = data.location;
+      document.getElementById('modalIconography').textContent = data.iconography;
+
+      // Miniatura de la obra (la misma imagen de la página)
+      const img = document.querySelector('[data-sculpture="' + id + '"] img');
+      const thumb = document.getElementById('modalThumb');
+      thumb.src = img.getAttribute('src');
+      thumb.alt = img.alt;
+
+      // Vista de escultura: miniatura y ficha técnica; sin notas ni lista de obras
+      document.getElementById('modalThumbWrap').hidden = false;
+      document.getElementById('modalSpecs').hidden = false;
+      document.getElementById('modalPeriodNotes').hidden = true;
+      document.getElementById('modalWorks').hidden = true;
+
+      setModalOpen();
+    }
+
+    // Popup de un período (años de la línea del tiempo): reutiliza el mismo modal
+    function openPeriodModal(periodId) {
+      const section = document.getElementById(periodId);
+      const pd = periodData[periodId];
+      if (!section || !pd) return;
+      modalState = { kind: 'period', id: periodId };
+
+      const years = section.querySelector('.timeline-node').textContent.replace(/\s*\/\s*/, ' / ');
+      const q = (sel) => section.querySelector(sel).textContent.replace(/\s+/g, ' ').trim();
+
+      document.getElementById('modalYear').textContent = years + ' · ' + q('.period-number');
+      document.getElementById('modalTitle').textContent = q('.period-title');
+      document.getElementById('modalSculptor').textContent = q('.period-date-range').replace(/^\(|\)$/g, '');
+      document.getElementById('modalDescription').textContent = pd.quote;
+
+      const notes = document.getElementById('modalPeriodNotes');
+      notes.textContent = pd.notes;
+      notes.hidden = false;
+      document.getElementById('modalThumbWrap').hidden = true;
+      document.getElementById('modalSpecs').hidden = true;
+
+      // Obras del período: botones que abren la ficha de cada escultura
+      const list = document.getElementById('modalWorksList');
+      list.textContent = '';
+      section.querySelectorAll('[data-sculpture]').forEach((el) => {
+        const id = el.getAttribute('data-sculpture');
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'modal-work-btn';
+        b.textContent = el.getAttribute('data-label');
+        b.addEventListener('click', () => openModal(id));
+        list.appendChild(b);
+      });
+      document.getElementById('modalWorks').hidden = false;
+
+      setModalOpen();
+    }
+
+    // Anterior / siguiente dentro del mismo tipo de popup (con vuelta al inicio)
+    function modalStep(dir) {
+      if (!modalState) return;
+      const list = modalState.kind === 'sculpture' ? sculptureOrder : periodOrder;
+      const next = list[(list.indexOf(modalState.id) + dir + list.length) % list.length];
+      if (modalState.kind === 'sculpture') openModal(next); else openPeriodModal(next);
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('detailModal');
+      if (!modal.classList.contains('open')) return;
+      modal.classList.remove('open');
+      document.querySelector('.poster-container').inert = false;
+      if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+      modalState = null;
+    }
+
+    // ---- Imagen ampliada (visor sobre el popup) ----
+    const largeImages = {
+      leones: 'assets/img/fuente-de-los-leones.webp',
+      india: 'assets/img/grande/fuente-de-la-india.webp',
+      medicina: 'assets/img/grande/monumento-estudiantes-de-medicina.webp',
+      maceo: 'assets/img/grande/monumento-antonio-maceo.webp',
+      trabajo: 'assets/img/grande/el-trabajo.webp',
+      virtud: 'assets/img/grande/la-virtud.webp',
+      republica: 'assets/img/grande/estatua-de-la-republica.webp'
+    };
+    let lightboxReturnFocus = null;
+
+    function isLightboxOpen() {
+      return document.getElementById('imageLightbox').classList.contains('open');
+    }
+
+    function openLightbox() {
+      if (!modalState || modalState.kind !== 'sculpture') return;
+      const src = largeImages[modalState.id];
+      if (!src) return;
+      const img = document.getElementById('lightboxImg');
+      img.src = src;
+      img.alt = sculptureData[modalState.id].title + ' (imagen ampliada)';
+      lightboxReturnFocus = document.activeElement;
+      document.getElementById('imageLightbox').classList.add('open');
+      document.getElementById('detailModal').inert = true;   // el popup queda debajo, intacto
+      document.getElementById('lightboxCloseBtn').focus();
+    }
+
+    function closeLightbox() {
+      if (!isLightboxOpen()) return;
+      document.getElementById('imageLightbox').classList.remove('open');
+      document.getElementById('lightboxImg').removeAttribute('src');
+      document.getElementById('detailModal').inert = false;
+      if (lightboxReturnFocus && document.contains(lightboxReturnFocus)) lightboxReturnFocus.focus();
+    }
+
+    function closeLightboxOnBackdrop(e) {
+      if (e.target.id === 'imageLightbox') closeLightbox();
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === 'detailModal') {
+        closeModal();
+      }
+    }
+
+    // Teclado: Escape cierra; flechas navegan; Tab queda dentro del popup
+    window.addEventListener('keydown', (e) => {
+      const open = document.getElementById('detailModal').classList.contains('open');
+      // Con la imagen ampliada abierta, Escape solo la cierra a ella y el foco no sale del visor
+      if (isLightboxOpen()) {
+        if (e.key === 'Escape') closeLightbox();
+        else if (e.key === 'Tab') { e.preventDefault(); document.getElementById('lightboxCloseBtn').focus(); }
+        return;
+      }
+      if (e.key === 'Escape') { closeModal(); return; }
+      if (!open) return;
+      if (e.key === 'ArrowLeft') { modalStep(-1); }
+      else if (e.key === 'ArrowRight') { modalStep(1); }
+      else if (e.key === 'Tab') {
+        const f = [...document.querySelectorAll('#detailModal button')].filter((b) => !b.disabled && b.offsetParent !== null);
+        if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (!f.includes(document.activeElement)) { e.preventDefault(); first.focus(); }
+        else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    // Esculturas accesibles por teclado: Enter o Espacio abren su ficha
+    document.querySelectorAll('.sculpture-item').forEach((el) => {
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(el.getAttribute('data-sculpture'));
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>
